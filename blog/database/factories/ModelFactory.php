@@ -22,7 +22,7 @@ $factory->define(App\Teacher::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'address' => $faker->address,
-        'phone' => $faker->phone,
+        'phone' => $faker->name,
         'profession' => $faker->randomElement($array = array('engineering','mathematics','physics'))
     ];
 });
@@ -31,7 +31,7 @@ $factory->define(App\Student::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'address' => $faker->address,
-        'phone' => $faker->phone,
+        'phone' => $faker->name,
         'career' => $faker->randomElement($array = array('engineering','mathematics','physics'))
     ];
 });
@@ -41,6 +41,8 @@ $factory->define(App\Course::class, function (Faker\Generator $faker) {
         'title' => $faker->name,
         'description' => $faker->paragraph(4),
         'value' => $faker->numberBetween(1,4),
-        'teacher_id' => $faker->mt_rand(1,50 )
+        'teacher_id' => 1
     ];
 });
+//REPLACE: $faker->mt_rand(1,50) 
+//WITH: $faker->optional()->passthrough(mt_rand(1,50));
