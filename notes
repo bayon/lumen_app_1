@@ -1,2 +1,6 @@
 left off creating models and seeding tables with faker data.
 in /database/seeds/DatabaseSeeder.php
+
+after completeing seeding set up we run command:
+cd 
+php artisan db:seed

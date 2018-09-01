@@ -14,14 +14,45 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+/*Teachers */
+$router->get('/teachers', 'TeacherController@index');
+$router->post('/teachers', 'TeacherController@store');
+$router->get('/teachers/{teachers}', 'TeacherController@show');
+$router->put('/teachers/{teachers}', 'TeacherController@update');
+$router->patch('/teachers/{teachers}', 'TeacherController@update');
+$router->delete('/teachers/{teachers}', 'TeacherController@destroy');
 
-$router->get('foo', function () {
-    return 'Hello Lumen Here';
-});
+/* TeacherCourse */
+$router->get('/teachers/{teachers}/courses', 'TeacherCourseController@index');
+$router->post('/teachers/{teachers}/courses', 'TeacherCourseController@store');
+$router->get('/teachers/{teachers}/courses/{courses}', 'TeacherCourseController@show');
+$router->put('/teachers/{teachers}/courses/{courses}', 'TeacherCourseController@update');
+$router->patch('/teachers/{teachers}/courses/{courses}', 'TeacherCourseController@update');
+$router->delete('/teachers/{teachers}/courses/{courses}', 'TeacherCourseController@destroy');
 
-$router->post('foo', function () {
-    //
-});
+/* Students */
+$router->get('/students', 'StudentController@index');
+$router->post('/students', 'StudentController@store');
+$router->get('/students/{students}', 'StudentController@show');
+$router->put('/students/{students}', 'StudentController@update');
+$router->patch('/students/{students}', 'StudentController@update');
+$router->delete('/students/{students}', 'StudentController@destroy');
+
+/* Courses */
+$router->get('/courses', 'CourseController@index');
+//$router->post('/courses', 'CourseController@store');
+$router->get('/courses/{courses}', 'CourseController@show');
+//$router->put('/courses/{courses}', 'CourseController@update');
+//$router->patch('/courses/{courses}', 'CourseController@update');
+//$router->delete('/courses/{courses}', 'CourseController@destroy');
+
+/* CourseStudent */
+$router->get('/courses/{courses}/students', 'CourseStudentController@index');
+$router->post('/courses/{courses}/students', 'CourseStudentController@store');
+//$router->get('/courses/{courses}/students/{students}', 'CourseStudentController@show');
+//$router->put('/courses/{courses}/students/{students}', 'CourseStudentController@update');
+//$router->patch('/courses/{courses}/students/{students}', 'CourseStudentController@update');
+$router->delete('/courses/{courses}/students/{students}', 'CourseStudentController@destroy');
 
 /*
 $router->get($uri, $callback);
