@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Teacher;
 class TeacherCourseController extends Controller
 {
     /**
@@ -14,9 +14,16 @@ class TeacherCourseController extends Controller
         //
     }
 
-    public function index(){
+    public function index($teacher_id){
 
-        return __METHOD__;
+        $teacher = Teacher::find($teacher_id);
+        if($teacher)
+        {
+            $courses = $teacher->courses;
+            $this->createSuccessResponse($courses,200);
+        }
+        return $this->createErrorMessage("The teacher with this id does not exist",404);
+        //return __METHOD__;
 
     }
     

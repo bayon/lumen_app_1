@@ -1,3 +1,6 @@
+-----------------------------------------------------------------------
+
+
 GET         => /teachers                        => TeacherController@index
 POST        => /teachers                        => TeacherController@store
 GET         => /teachers/{teachers}             => TeacherController@show
@@ -5,7 +8,6 @@ PUT         => /teachers/{teachers}             => TeacherController@update
 PATCH       => /teachers/{teachers}             => TeacherController@update
 DELETE      => /teachers/{teachers}             => TeacherController@destroy
 ----------------------------------------------------------------------------
-
 GET         => /students                        => StudentController@index
 POST        => /students                        => StudentController@store
 GET         => /students/{students}             => StudentController@show
@@ -13,11 +15,9 @@ PUT         => /students/{students}             => StudentController@update
 PATCH       => /students/{students}             => StudentController@update
 DELETE      => /students/{students}             => StudentController@destroy
 ----------------------------------------------------------------------------
-
 GET         => /courses                        => CourseController@index
 GET        => /courses{courses}                => CourseController@show
 ----------------------------------------------------------------------------
-
 GET         => /teachers/{teachers}/courses             => TeacherCourseController@index
 POST        => /teachers/{teachers}/courses             => TeacherCourseController@store
 GET         => /teachers/{teachers}/courses{courses}    => TeacherCourseController@show

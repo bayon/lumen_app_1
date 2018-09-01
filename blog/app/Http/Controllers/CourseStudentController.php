@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Course;
 
 class CourseStudentController extends Controller
 {
@@ -14,9 +15,16 @@ class CourseStudentController extends Controller
         //
     }
 
-    public function index(){
+    public function index($id){
 
-        return __METHOD__;
+        $course = Course::find($id);
+        if($course)
+        {
+            $students = $course->students;
+            return $this->createSuccessResponse($students,200);
+        }
+        return $this->createErrorMessage("The course with the id {$id} does not exist",404);
+        //return __METHOD__;
 
     }
     
