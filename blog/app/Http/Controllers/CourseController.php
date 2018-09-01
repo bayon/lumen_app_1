@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Course;
-
+use Illuminate\Http\Request;
 class CourseController extends Controller
 {
     /**
@@ -19,8 +19,7 @@ class CourseController extends Controller
     public function index(){
 
         $courses = Course::all();
-        // since we do this for everything we create a method in base controller
-        //return response()->json(['data' => $courses], 200);
+        //use base controller method
         return $this -> createSuccessResponse($courses, 200);
         //return __METHOD__;
 
@@ -28,10 +27,12 @@ class CourseController extends Controller
     /*
     public function store(){
 
+        
         return __METHOD__;
 
     }
-*/
+    */
+
      public function show($id){
 
         $course = Course::find($id);

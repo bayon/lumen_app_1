@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Teacher;
-
+use Illuminate\Http\Request;
 class TeacherController extends Controller
 {
     /**
@@ -24,9 +24,18 @@ class TeacherController extends Controller
 
     }
     
-    public function store(){
+    public function store(Request $request){
 
-        return __METHOD__;
+        $rules = [
+            'name' => 'required',
+            'phone' => 'required|numeric',
+            'address' => 'required',
+            'profession' => 'required|in:engineering,math,physics'
+        ];
+        $this -> validate($request, $rules);
+        $teacher = Teacher::create($request->all());
+        return $this->createSuccessResponse("The teacher with the id {$teacher->id} has been created.",201);
+        //return __METHOD__;
 
     }
 

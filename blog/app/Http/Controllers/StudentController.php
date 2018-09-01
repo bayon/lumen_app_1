@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Student;
 
+use Illuminate\Http\Request;
+
+
 class StudentController extends Controller
 {
     /**
@@ -24,9 +27,18 @@ class StudentController extends Controller
 
     }
     
-    public function store(){
+    public function store(Request $request){
 
-        return __METHOD__;
+        $rules = [
+            'name' => 'required',
+            'phone' => 'required|numeric',
+            'address' => 'required',
+            'career' => 'required|in:engineering,math,physics'
+        ];
+        $this -> validate($request, $rules);
+        $student = Student::create($request->all());
+        return $this->createSuccessResponse("The student with the id {$student->id} has been created.",201);
+        //return __METHOD__;
 
     }
 
