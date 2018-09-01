@@ -54,7 +54,7 @@ class StudentController extends Controller
 
     }
   
-    public function update(){
+    public function update(Request $request, $student_id){
 
         return __METHOD__;
 
