@@ -41,7 +41,7 @@ $factory->define(App\Course::class, function (Faker\Generator $faker) {
         'title' => $faker->name,
         'description' => $faker->paragraph(4),
         'value' => $faker->numberBetween(1,4),
-        'teacher_id' => 1
+        'teacher_id' => $faker->randomElement($array = array(1,2,3,4,5))
     ];
 });
 //REPLACE: $faker->mt_rand(1,50) 

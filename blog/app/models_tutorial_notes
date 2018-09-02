@@ -1,0 +1,33 @@
+
+Teacher: 
+    #id
+    - name
+    - address
+    - phone 
+    - profession
+    _______________________________________________________
+    => A teacher teaches many courses.
+-----------------------------------------------------------
+
+Student: 
+    #id
+    - name 
+    - address 
+    - phone 
+    - career 
+    _______________________________________________________
+    => A student takes many courses.
+-----------------------------------------------------------
+
+Course: 
+    #id 
+    - title 
+    - description 
+    - value 
+    _______________________________________________________
+    => A course is taught by one teacher ( one to many - 1:M);
+    => A course is taken by many students ( many to many - M:M)
+---------------------------------------------------------------
+
+Artisan Commands: ( should document them all) 
+php artisan make:migration create_course_teacher_table --create=course_teacher

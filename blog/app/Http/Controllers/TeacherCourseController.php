@@ -20,7 +20,7 @@ class TeacherCourseController extends Controller
         if($teacher)
         {
             $courses = $teacher->courses;
-            $this->createSuccessResponse($courses,200);
+            return $this->createSuccessResponse($courses,200);
         }
         return $this->createErrorMessage("The teacher with this id does not exist",404);
         //return __METHOD__;

@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         Course::truncate();
         // LEFT OFF HERE....DB::Course_Table
         DB::table('course_student')->truncate();
-
+        //DB::table('course_teacher')->truncate();
 
         factory(Teacher::class, 50)->create();
         factory(Student::class, 500)->create();
