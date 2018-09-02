@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Course;
+use App\Student;
 
 class CourseStudentController extends Controller
 {
@@ -28,13 +29,37 @@ class CourseStudentController extends Controller
 
     }
     
-    public function store(){
+    public function store($course_id, $student_id)
+    {
+        $course = Course::find($course_id);
 
-        return __METHOD__;
+        if($course)
+        {
+            $student = Student::find($student_id);
+
+            if($student)
+            { 
+                //many to many 
+                //check that student doesn't already exist in the course.
+                if($course->students()->find($student_id))
+                {
+                    return $this->createErrorMessage("The student with id {$student_id} already exists in this course.",409);
+                }
+                //success
+                $course->students()->attach($student_id);
+                $this->createSuccessResponse("The student with id {$student_id} has been added to the course.",201);
+
+            }
+            return $this->createErrorMessage("The student with id {$student_id}, does not exist",404);
+
+        }
+        return $this->createErrorMessage("The course with id {$course_id}, does not exist",404);
+        //return __METHOD__;
 
     }
 
-     public function show(){
+     public function show()
+     {
 
         return __METHOD__;
 

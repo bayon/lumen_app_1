@@ -48,7 +48,7 @@ $router->get('/courses/{courses}', 'CourseController@show');
 
 /* CourseStudent */
 $router->get('/courses/{courses}/students', 'CourseStudentController@index');
-$router->post('/courses/{courses}/students', 'CourseStudentController@store');
+$router->post('/courses/{courses}/students/{students}', 'CourseStudentController@store');
 //$router->get('/courses/{courses}/students/{students}', 'CourseStudentController@show');
 //$router->put('/courses/{courses}/students/{students}', 'CourseStudentController@update');
 //$router->patch('/courses/{courses}/students/{students}', 'CourseStudentController@update');
