@@ -57,3 +57,6 @@ BENCHMARKING COMMAND:
 cd ......./apache/bin
     ab -t 10 -c 10 http://localhost:8888
 I'm not using appache I'm using php -S 
+
+
+FINAL NOTE BEFORE DECLARING GOOD SOLID FOUNDATION COMMIT
