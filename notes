@@ -4,3 +4,56 @@ in /database/seeds/DatabaseSeeder.php
 after completeing seeding set up we run command:
 cd 
 php artisan db:seed
+
+TODO: create list php artisan commands....
+
+ADD OAUTH: to compose.json
+ "require": {
+        "php": ">=7.1.3",
+        "fzaninotto/faker": "^1.8",
+        "laravel/lumen-framework": "5.6.*",
+        "vlucas/phpdotenv": "~2.2",
+        "lucadegasperi/oauth2-server-laravel":"^5.0"
+    },
+
+THEN run composer update...
+
+THEN move the oauth file into our projects config from the 'vendor' dir....
+Then copy migration files and move to our projects migrations...
+
+THEN in bootstrap/app.php 
+we REGISTER these things...
+
+THEN he registers the middleware 
+and then in the controllers that use protected access
+he places  code in the constructor method to define which methods to 'except' and which to use.
+
+
+!!! That one was Discontinued...
+FOR AUTHORIZATION USE THIS INSTEAD: 
+https://packagist.org/packages/laravel/passport
+
+
+OR DOWNLOAD THIS and transfer functionality to it.
+https://github.com/OmarElGabry/lumen-api-oauth
+
+
+
+FINALLY : handle exceptions as an API should.
+
+in app/Exceptions/handler.php
+
+
+LAST: PRODUCTION OPTIMIZIZATION  API...
+1) go to config and comment out facades..
+    !) will have to ENABLE again to use migrations!!!
+
+2) run command 
+composer dump-autoload
+
+
+
+BENCHMARKING COMMAND: 
+cd ......./apache/bin
+    ab -t 10 -c 10 http://localhost:8888
+I'm not using appache I'm using php -S 
