@@ -31,3 +31,6 @@ Course:
 
 Artisan Commands: ( should document them all) 
 php artisan make:migration create_course_teacher_table --create=course_teacher
+
+
+php artisan make:migration create_snippet_table --create=snippet

@@ -48,7 +48,8 @@ class ApiCaller extends React.Component {
           <ul>
           {items.map(item => (
             <li key={item.id}>
-              {item.name} {item.address}
+             <h3> {item.name}</h3><p> {item.address}</p>
+             <p>{item.profession}</p>
             </li>
           ))}
         </ul>
