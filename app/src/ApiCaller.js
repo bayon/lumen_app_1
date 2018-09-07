@@ -11,12 +11,13 @@ class ApiCaller extends React.Component {
         items: []
       };
     }
-  
+  //https://reqres.in/api/users?page=2
     componentDidMount() {
-      fetch("https://reqres.in/api/users?page=2")
+      fetch("http://localhost:8000/teachers")
         .then(res => res.json())
         .then(
           (result) => {
+            console.log('result:',result);
             this.setState({
               isLoaded: true,
               items: result.data
@@ -43,14 +44,15 @@ class ApiCaller extends React.Component {
         return <div>Loading...</div>;
       } else {
         return (
-         
+         <div className='ajaxresults'>
           <ul>
           {items.map(item => (
-            <li key={item.last_name}>
-              {item.last_name} {item.first_name}
+            <li key={item.id}>
+              {item.name} {item.address}
             </li>
           ))}
         </ul>
+        </div>
         );
       }
     }
