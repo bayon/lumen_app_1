@@ -14,6 +14,8 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+        <h3>What is this?</h3>
+        <p>This is a REACT app on localhost:3000 calling and lumen api on localhost:8000.</p>
         <ApiCaller></ApiCaller>
       </div>
     );
