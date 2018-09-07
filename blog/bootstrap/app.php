@@ -58,6 +58,10 @@ $app->singleton(
 | route or middleware that'll be assigned to some specific routes.
 |
 */
+// CORS Middleware
+    $app->middleware([
+        App\Http\Middleware\CorsMiddleware::class
+    ]);
 
 // $app->middleware([
 //    App\Http\Middleware\ExampleMiddleware::class
