@@ -1,0 +1,7 @@
+php artisan make:migration create_snippet_table --create=snippet 
+
+api/app/http/ controller SnippetController.php 
+
+api/app/ Snippet.php MODEL 
+
+api/routes/web.php add route for snippets
