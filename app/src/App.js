@@ -16,7 +16,7 @@ class App extends Component {
         </p>
         <h3>What is this?</h3>
         <p>This is a REACT app on localhost:3000 calling and lumen api on localhost:8000.</p>
-        <ApiCaller></ApiCaller>
+        <ApiCaller endpoint="http://localhost:8000/monkeys" ></ApiCaller>
       </div>
     );
   }

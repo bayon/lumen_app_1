@@ -10,10 +10,10 @@ class ApiCaller extends React.Component {
         isLoaded: false,
         items: []
       };
+      console.log('props:',props);
     }
-  //https://reqres.in/api/users?page=2
     componentDidMount() {
-      fetch("http://localhost:8000/teachers")
+      fetch(this.props.endpoint)
         .then(res => res.json())
         .then(
           (result) => {
@@ -48,8 +48,12 @@ class ApiCaller extends React.Component {
           <ul>
           {items.map(item => (
             <li key={item.id}>
-             <h3> {item.name}</h3><p> {item.address}</p>
-             <p>{item.profession}</p>
+             <h3>Name:{item.name}</h3><p>Address:{item.address}</p>
+             <p>Profession:{item.profession}</p>
+             <p>REQUEST_METHOD:{item.REQUEST_METHOD}</p>
+             <p>REQUEST_TIME:{item.REQUEST_TIME}</p>
+             <p>REQUEST_URI:{item.REQUEST_URI}</p>
+             <p>REQUEST_CONTENT_TYPE:{item.REQUEST_CONTENT_TYPE}</p>
             </li>
           ))}
         </ul>
